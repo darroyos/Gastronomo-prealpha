@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+.logo {
+    font-family: 'Pacifico', cursive;
+    text-shadow: 1px 1px 1px white;
+}
+
+#index-banner {
+    background-image: url('../img/backgrounds/food-background.jpg');
+    background-size: cover;
+}
+
+.section-search input {
+    padding-left: 20px !important;
+    font-size: 18px !important;
+    width: 90% !important;
+    border: #f4f4f4 3px solid !important;
+    -webkit-border-radius: 50px !important;
+    -moz-border-radius: 50px !important;
+    border-radius: 50px !important;
+}
+
+.section-ingredients {
+    background-color: #fafafa;
+    box-shadow: 2px 2px 5px grey;
+}
+
+
+/* label focus color */
+
+.input-field input:focus+label {
+    color: red !important;
+}
+
+
+/* label underline focus color */
+
+.input-field input:focus {
+    box-shadow: 0 1px 0 0 red !important
+}
