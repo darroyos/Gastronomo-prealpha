@@ -9,7 +9,7 @@
     background-size: cover;
 }
 
-.section-search input {
+.section-search input[type="text"] {
     padding-left: 20px !important;
     font-size: 18px !important;
     width: 90% !important;
@@ -27,13 +27,33 @@
 
 /* label focus color */
 
-.input-field input:focus+label {
+.input-field[type="text"] input:focus+label {
     color: red !important;
 }
 
 
 /* label underline focus color */
 
-.input-field input:focus {
-    box-shadow: 0 1px 0 0 red !important
+.input-field[type="text"] input:focus {
+    box-shadow: 0 1px 0 0 red;
+}
+
+.chips {
+    border-bottom: none;
+}
+
+.chips.focus {
+    border-bottom: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.enviar {
+    margin-left: -50px !important;
+}
+
+.options {
+    padding-top: 10px !important;
+    background: rgba(255, 116, 116, 0.2);
+    border-radius: 50px;
 }
