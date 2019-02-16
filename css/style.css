@@ -52,3 +52,9 @@
 	overflow-y: hidden !important ;
 	border-radius: 15px;
 }
+
+.img-recortada {    
+    width: 350px;
+    height: 290px;
+    object-fit: cover;
+}
