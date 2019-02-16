@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+// Color rojo en vez del azul por defecto
 function changeColor() {
     document.querySelectorAll('.chip').forEach(chip => {
         chip.classList.add('red');
