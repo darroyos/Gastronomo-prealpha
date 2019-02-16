@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gastrónomo | Buscadro de recetas por ingredientes</title>
+    <title>Gastrónomo | Buscador de recetas por ingredientes</title>
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,10 +20,123 @@
             <a href="#" class="brand-logo logo">Gastrónomo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#"><i class="material-icons">notifications</i></a></li>
-                <li><a href="#"><i class="material-icons right">person</i>Iniciar sesión</a></li>
+                <li><a class="waves-effect waves-light modal-trigger" href="#login"><i class="material-icons right">person</i>Iniciar sesión</a></li>
             </ul>
         </div>
     </nav>
+
+    <!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!--->
+
+	<div id="login" class="modal top-sheet">    	
+	    <div class="modal-content">	    
+	        <form class="login-form">
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">mail_outline</i>
+		            <input class="validate" id="email" type="email">
+		            <label for="email" data-error="wrong" data-success="right">Email</label>
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">lock_outline</i>
+		            <input id="password" type="password">
+		            <label for="password">Password</label>
+		          </div>
+		        </div>
+		        <div class="row">          
+		          <div class="input-field col s12">
+					<label>
+				        <input type="checkbox" id="remember-me"/>
+				        <span>Remember me</span>
+				    </label>              
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <a href="#" class="modal-close btn waves-effect waves-light col s12">Login</a>
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s6 m6 l6">
+		             <p class="margin medium-small"><a class="modal-trigger modal-close" href="#register">Register Now!</a></p>
+		          </div>
+		          <div class="input-field col s6 m6 l6">
+		              <p class="margin right-align medium-small"><a class="modal-trigger modal-close" href="#forgot-password">Forgot password?</a></p>
+		          </div>          
+		       </div>
+	      </form>
+		</div>	
+	</div>
+
+	<div id="register" class="modal top-sheet">    	
+	    <div class="modal-content">	    
+	        <form class="login-form">
+	        	<div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">person</i>
+		            <input class="validate" id="email" type="email">
+		            <label for="email" data-error="wrong" data-success="right">Email</label>
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">mail_outline</i>
+		            <input class="validate" id="email" type="email">
+		            <label for="email" data-error="wrong" data-success="right">Email</label>
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">lock_outline</i>
+		            <input id="password" type="password">
+		            <label for="password">Password</label>
+		          </div>
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">lock_outline</i>
+		            <input id="password" type="password">
+		            <label for="password">Repeat your password</label>
+		          </div>
+		        </div>		        
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <a href="#" class="modal-close btn waves-effect waves-light col s12">Register</a>
+		          </div>
+		        </div>
+		        <div class="input-field col s6 m6 l6">
+		             <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Back to login</a></p>
+		         </div>       
+	      </form>
+		</div>	
+	</div>
+
+	<div id="forgot-password" class="modal">    	
+	    <div class="modal-content">	    
+	        <form class="login-form">  		
+		        <div class="row">
+		        </div>
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <i class="material-icons prefix">mail_outline</i>
+		            <input class="validate" id="email" type="email">
+		            <label for="email" data-error="wrong" data-success="right">Email</label>
+		          </div>
+		        </div>		        
+		        <div class="row">
+		          <div class="input-field col s12">
+		            <a href="#" class="modal-close btn waves-effect waves-light col s12">Send email</a>
+		          </div>
+		          <div class="input-field col s6 m6 l6">
+		             <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Back to login</a></p>
+		          </div>    
+		        </div>		        
+	      </form>
+		</div>	
+	</div>
+
+<!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!--->
 
     <div class="section section-search no-pad-bot" id="index-banner">
         <div class="container">

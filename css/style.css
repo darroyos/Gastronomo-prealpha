@@ -45,3 +45,10 @@
     background: rgba(255, 116, 116, 0.2);
     border-radius: 50px;
 }
+
+.modal { 
+	width: 30% !important ;
+	min-height: 2px;	
+	overflow-y: hidden !important ;
+	border-radius: 15px;
+}
