@@ -1,6 +1,21 @@
 /* Fuente logotipo */
 
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+/* label focus color */
+
+input:focus+label {
+    color: red !important;
+}
+
+
+/* label underline focus color */
+
+input:focus {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important
+}
+
 .logo {
     font-family: 'Pacifico', cursive;
     text-shadow: 1px 1px 1px white;
@@ -12,7 +27,7 @@
 }
 
 .section-search input[type="text"] {
-    padding-left: 20px !important;
+    /* padding-left: 20px !important; */
     font-size: 18px !important;
     width: 95% !important;
     border: #f4f4f4 3px solid !important;
@@ -36,6 +51,10 @@
     -webkit-box-shadow: none;
 }
 
+.dropdown-content li>span {
+    color: #ee6e73 !important;
+}
+
 .enviar {
     margin-left: -50px !important;
 }
@@ -46,14 +65,14 @@
     border-radius: 50px;
 }
 
-.modal { 
-	width: 30% !important ;
-	min-height: 2px;	
-	overflow-y: hidden !important ;
-	border-radius: 15px;
+.modal {
+    width: 30% !important;
+    min-height: 2px;
+    overflow-y: hidden !important;
+    border-radius: 15px;
 }
 
-.img-recortada {    
+.img-recortada {
     width: 350px;
     height: 290px;
     object-fit: cover;

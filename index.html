@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gastrónomo | Buscador de recetas por ingredientes</title>
 
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ff1744">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ff1744">
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
@@ -17,7 +35,7 @@
 
     <nav>
         <div class="nav-wrapper container">
-            <a href="#" class="brand-logo logo">Gastrónomo</a>
+            <a href="index.html" class="brand-logo logo">Gastrónomo</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#"><i class="material-icons">notifications</i></a></li>
                 <li><a class="waves-effect waves-light modal-trigger" href="#login"><i class="material-icons right">person</i>Iniciar sesión</a></li>
@@ -25,118 +43,111 @@
         </div>
     </nav>
 
-    <!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!--->
+    <!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!-->
 
-	<div id="login" class="modal">    	
-	    <div class="modal-content">	    
-	        <form class="login-form">
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">mail_outline</i>
-		            <input class="validate" id="email" type="email">
-		            <label for="email" data-error="wrong" data-success="right">Email</label>
-		          </div>
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">lock_outline</i>
-		            <input id="password" type="password">
-		            <label for="password">Password</label>
-		          </div>
-		        </div>
-		        <div class="row">          
-		          <div class="input-field col s12">
-					<label>
+    <div id="login" class="modal">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email" type="email">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password" type="password">
+                        <label for="password">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>
 				        <input type="checkbox" id="remember-me"/>
-				        <span>Remember me</span>
-				    </label>              
-		          </div>
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <a href="#" class="modal-close btn waves-effect waves-light col s12">Login</a>
-		          </div>
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s6 m6 l6">
-		             <p class="margin medium-small"><a class="modal-trigger modal-close" href="#register">Register Now!</a></p>
-		          </div>
-		          <div class="input-field col s6 m6 l6">
-		              <p class="margin right-align medium-small"><a class="modal-trigger modal-close" href="#forgot-password">Forgot password?</a></p>
-		          </div>          
-		       </div>
-	      </form>
-		</div>	
-	</div>
+				        <span>Recordar</span>
+				    </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Iniciar sesión</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a class="modal-trigger modal-close" href="#register">Registrarme</a></p>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin right-align medium-small"><a class="modal-trigger modal-close" href="#forgot-password">¿Has olvidado tu contraseña?</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-	<div id="register" class="modal top-sheet">    	
-	    <div class="modal-content">	    
-	        <form class="login-form">
-	        	<div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">person</i>
-		            <input class="validate" id="username" type="text">
-		            <label for="email" data-error="wrong" data-success="right">Username</label>
-		          </div>
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">mail_outline</i>
-		            <input class="validate" id="email" type="email">
-		            <label for="email" data-error="wrong" data-success="right">Email</label>
-		          </div>
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">lock_outline</i>
-		            <input id="password" type="password">
-		            <label for="password">Password</label>
-		          </div>
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">lock_outline</i>
-		            <input id="password" type="password">
-		            <label for="password">Repeat your password</label>
-		          </div>
-		        </div>		        
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <a href="#" class="modal-close btn waves-effect waves-light col s12">Register</a>
-		          </div>
-		        </div>
-		        <div class="input-field col s6 m6 l6">
-		             <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Back to login</a></p>
-		         </div>       
-	      </form>
-		</div>	
-	</div>
+    <div id="register" class="modal top-sheet">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person</i>
+                        <input class="validate" id="username" type="text">
+                        <label for="username" data-error="wrong" data-success="right">Usuario</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email_register" type="email">
+                        <label for="email_register" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password_register" type="password">
+                        <label for="password_register">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Registrarse</a>
+                    </div>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Volver</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
 
-	<div id="forgot-password" class="modal">    	
-	    <div class="modal-content">	    
-	        <form class="login-form">  		
-		        <div class="row">
-		        </div>
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <i class="material-icons prefix">mail_outline</i>
-		            <input class="validate" id="email" type="email">
-		            <label for="email" data-error="wrong" data-success="right">Email</label>
-		          </div>
-		        </div>		        
-		        <div class="row">
-		          <div class="input-field col s12">
-		            <a href="#" class="modal-close btn waves-effect waves-light col s12">Send email</a>
-		          </div>
-		          <div class="input-field col s6 m6 l6">
-		             <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Back to login</a></p>
-		          </div>    
-		        </div>		        
-	      </form>
-		</div>	
-	</div>
+    <div id="forgot-password" class="modal">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email_remember" type="email">
+                        <label for="email_remember" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Enviar email</a>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Volver</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!--->
+    <!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!-->
 
     <div class="section section-search no-pad-bot" id="index-banner">
         <div class="container">
@@ -147,13 +158,16 @@
             </div>
             <div class="row center">
                 <div class="col s12">
-                    <div class="chips">
-                        <div class="search">
-                            <input class="white grey-text" placeholder="+Ingrediente" type="text">
-                            <button class="btn-floating btn-large waves-effect waves-light red enviar" type="submit" name="action">
-                                <i class="material-icons">search</i><i class="material-icons right">send</i></button>
+                    <form action="buscar.html" method="GET">
+                        <div class="chips">
+                            <div class="search">
+                                <input class="white grey-text" placeholder="  +Ingrediente" type="text">
+                                <button class="btn-floating btn-large waves-effect waves-light red enviar" type="submit" name="action">
+                                        <i class="material-icons">search</i><i class="material-icons right">send</i></button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
 

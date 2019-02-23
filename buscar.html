@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gastrónomo | Buscador de recetas por ingredientes</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ff1744">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ff1744">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/helpers.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="index.html" class="brand-logo logo">Gastrónomo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#"><i class="material-icons">notifications</i></a></li>
+                <li><a class="waves-effect waves-light modal-trigger" href="#login"><i class="material-icons right">person</i>Iniciar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!-->
+
+    <div id="login" class="modal">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email" type="email">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password" type="password">
+                        <label for="password">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>
+				        <input type="checkbox" id="remember-me"/>
+				        <span>Recordar</span>
+				    </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Iniciar sesión</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a class="modal-trigger modal-close" href="#register">Registrarme</a></p>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin right-align medium-small"><a class="modal-trigger modal-close" href="#forgot-password">¿Has olvidado tu contraseña?</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="register" class="modal top-sheet">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person</i>
+                        <input class="validate" id="username" type="text">
+                        <label for="username" data-error="wrong" data-success="right">Usuario</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email_register" type="email">
+                        <label for="email_register" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password_register" type="password">
+                        <label for="password_register">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Registrarse</a>
+                    </div>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Volver</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="forgot-password" class="modal">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email_remember" type="email">
+                        <label for="email_remember" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Enviar email</a>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Volver</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="pr50 pl50 mt30 mb30">
+
+        <div class="row section-search">
+
+            <input class="white grey-text" placeholder="  Buscar una receta..." type="text">
+            <button class="btn-floating btn-large waves-effect waves-light red enviar" type="submit" name="action">
+                        <i class="material-icons">search</i><i class="material-icons right">send</i></button>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col l10">
+                6 resultados que <strong>incluyen "XXX"</strong>
+                <a class="waves-effect waves-light btn-small red ml10">Editar</a>
+            </div>
+
+            <div class="input-field col l2">
+                <select>
+                            <option value="1">Más relevantes</option>
+                            <option value="2">Nuevos</option>
+                            <option value="3">Populares</option>
+                          </select>
+                <label>Ordenar por</label>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col s12 m4 l3">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Filtrar resultados</span>
+
+                        <div class="mb10">
+                            <strong>Tiempo</strong>
+                            <p>
+                                Máximo de tiempo que quieres dedicar
+                            </p>
+                            <form action="#">
+                                <p class="range-field">
+                                    <input type="range" id="test5" min="0" max="100" />
+                                </p>
+                            </form>
+                        </div>
+
+                        <div class="mb10">
+                            <strong>Dificultad</strong>
+                            <form action="#">
+                                <p>
+                                    <label>
+                                            <input type="checkbox" />
+                                            <span>Fácil</span>
+                                          </label>
+                                </p>
+                                <p>
+                                    <label>
+                                            <input type="checkbox" />
+                                            <span>Medio</span>
+                                            </label>
+                                </p>
+                                <p>
+                                    <label>
+                                            <input type="checkbox" />
+                                            <span>Difícil</span>
+                                            </label>
+                                </p>
+                            </form>
+                        </div>
+
+                        <div class="mb10">
+                            <strong>Tipo de cocina</strong>
+                            <form action="#">
+                                <p>
+                                    <label>
+                                                <input type="checkbox" />
+                                                <span>Española</span>
+                                              </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                <input type="checkbox" />
+                                                <span>Italiana</span>
+                                                </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                <input type="checkbox" />
+                                                <span>Griega</span>
+                                                </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Mejicana</span>
+                                                    </label>
+                                </p>
+                            </form>
+                        </div>
+
+                        <div class="mb10">
+                            <strong>Dieta</strong>
+                            <form action="#">
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Bajo en carbohidratos</span>
+                                                  </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Bajo en sodio</span>
+                                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Mucha fibra</span>
+                                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                        <input type="checkbox" />
+                                                        <span>Alto valor protéico</span>
+                                                        </label>
+                                </p>
+
+                                <p>
+                                    <label>
+                                                            <input type="checkbox" />
+                                                            <span>Poca grasa</span>
+                                                            </label>
+                                </p>
+
+                            </form>
+                        </div>
+
+                        <div class="mb10">
+                            <strong>Alérgenos</strong>
+                            <form action="#">
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Sin gluten</span>
+                                                  </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Sin huevo</span>
+                                                    </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                        <input type="checkbox" />
+                                                        <span>Sin azúcar</span>
+                                                        </label>
+                                </p>
+                                <p>
+                                    <label>
+                                                    <input type="checkbox" />
+                                                    <span>Sin cacahuetes</span>
+                                                    </label>
+                                </p>
+
+                            </form>
+
+                            <a class="mt20 waves-effect waves-light red btn"><i class="material-icons left">search</i>Filtrar</a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col s12 m8 l9">
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-recortada" src="img/home-icons/food/pizza.jpg">
+                                <span class="card-title">Receta 1</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star_border</i>
+                                <p>Aquí iría una pequeña descripción de la receta de no muchas líneas para que los usuarios se hagan una idea de lo que se van a encontrar cuando accedan a ella.</p>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 1</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 2</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 3</span>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">person</i> Creado por Anónimo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-recortada" src="img/home-icons/food/plato1.jpg">
+                                <span class="card-title">Receta 2</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star_border</i>
+                                <p>Aquí iría una pequeña descripción de la receta de no muchas líneas para que los usuarios se hagan una idea de lo que se van a encontrar cuando accedan a ella.</p>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 1</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 2</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 3</span>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">person</i> Creado por Anónimo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-recortada" src="img/home-icons/food/plato2.jpg">
+                                <span class="card-title">Receta 3</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star_border</i>
+                                <p>Aquí iría una pequeña descripción de la receta de no muchas líneas para que los usuarios se hagan una idea de lo que se van a encontrar cuando accedan a ella.</p>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 1</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 2</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 3</span>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">person</i> Creado por Anónimo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-recortada" src="img/home-icons/food/plato3.jpg">
+                                <span class="card-title">Receta 4</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star_border</i>
+                                <p>Aquí iría una pequeña descripción de la receta de no muchas líneas para que los usuarios se hagan una idea de lo que se van a encontrar cuando accedan a ella.</p>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 1</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 2</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 3</span>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">person</i> Creado por Anónimo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-recortada" src="img/home-icons/food/plato4.jpg">
+                                <span class="card-title">Receta 5</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star_border</i>
+                                <p>Aquí iría una pequeña descripción de la receta de no muchas líneas para que los usuarios se hagan una idea de lo que se van a encontrar cuando accedan a ella.</p>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 1</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 2</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 3</span>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">person</i> Creado por Anónimo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img class="img-recortada" src="img/home-icons/food/plato5.jpg">
+                                <span class="card-title">Receta 6</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                            </div>
+                            <div class="card-content">
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star</i>
+                                <i class="tiny material-icons">star_border</i>
+                                <p>Aquí iría una pequeña descripción de la receta de no muchas líneas para que los usuarios se hagan una idea de lo que se van a encontrar cuando accedan a ella.</p>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 1</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 2</span>
+                                <span><i class="tiny material-icons">restaurant_menu</i> Tag 3</span>
+                            </div>
+                            <div class="card-action">
+                                <span><i class="tiny material-icons">person</i> Creado por Anónimo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <footer class="page-footer red">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Equipo</h5>
+                    <p class="grey-text text-lighten-4">
+                        Somos un grupo de estudiantes de la Facultad de Informática de la Universidad Complutense de Madrid. Esta aplicación es un proyecto para la asignatura de Ingeniería Web.
+                    </p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Enlaces</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Más enlaces</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Desarrollado en <i class="material-icons tiny">code</i> <a class="orange-text text-lighten-3" href="https://informatica.ucm.es/">Facultad de Informática UCM</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/materialize.min.js"></script>
+    <script src="js/gastronomo.js"></script>
+</body>
+
+</html>
