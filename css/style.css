@@ -77,3 +77,7 @@ input:focus {
     height: 290px;
     object-fit: cover;
 }
+
+.card-title a {
+    color: white;
+}

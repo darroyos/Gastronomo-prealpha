@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gastrónomo | Buscador de recetas por ingredientes</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ff1744">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ff1744">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/helpers.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="index.html" class="brand-logo logo">Gastrónomo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#"><i class="material-icons">notifications</i></a></li>
+                <li><a class="waves-effect waves-light modal-trigger" href="#login"><i class="material-icons right">person</i>Iniciar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!---INCLUIR EN OTRO HTML INDEPENDIENTE!!!!-->
+
+    <div id="login" class="modal">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email" type="email">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password" type="password">
+                        <label for="password">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label>
+				        <input type="checkbox" id="remember-me"/>
+				        <span>Recordar</span>
+				    </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Iniciar sesión</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a class="modal-trigger modal-close" href="#register">Registrarme</a></p>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin right-align medium-small"><a class="modal-trigger modal-close" href="#forgot-password">¿Has olvidado tu contraseña?</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="register" class="modal top-sheet">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person</i>
+                        <input class="validate" id="username" type="text">
+                        <label for="username" data-error="wrong" data-success="right">Usuario</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email_register" type="email">
+                        <label for="email_register" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password_register" type="password">
+                        <label for="password_register">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Registrarse</a>
+                    </div>
+                </div>
+                <div class="input-field col s6 m6 l6">
+                    <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Volver</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="forgot-password" class="modal">
+        <div class="modal-content">
+            <form class="login-form">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate" id="email_remember" type="email">
+                        <label for="email_remember" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="modal-close btn waves-effect waves-light col s12">Enviar email</a>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <p class="margin medium-small"><a class="modal-trigger modal-close" href="#login">Volver</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="pr50 pl50 mt30 mb30">
+
+        <div class="row">
+
+            <div class="col s12 m3">
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Recomendados
+                        </div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non iusto quod velit autem nam! Maxime quibusdam, corporis debitis recusandae libero reprehenderit? Possimus, assumenda dolor. Minima nam laboriosam architecto eius fugit?
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col s12 m9">
+                <div class="row card">
+
+                    <div class="card-content">
+                        <div class="col s12 m7">
+
+                            <h4>Pizza margarita</h4>
+                            <p class="mb10"><i class="tiny material-icons">person</i> Creado por Anónimo</p>
+                            <i class="tiny material-icons">star</i>
+                            <i class="tiny material-icons">star</i>
+                            <i class="tiny material-icons">star</i>
+                            <i class="tiny material-icons">star</i>
+                            <i class="tiny material-icons">star_border</i>
+                            <p>En la cocina, como en casi cualquier cosa en la vida, podemos llegar a complicarnos tanto como queramos, pero también ocurre al revés. Podemos hacer las cosas tan sencillas como queramos sin necesidad de sacrificar en calidad
+                                final. Una de las recetas que más me gusta hacer en casa es la receta de pizza casera, pero casera no significa hacerla de tal forma que no merezca un puesto de honor en nuestra mesa.</p>
+
+                            <p class="mt10">
+                                <i class="tiny material-icons">people</i> 300 personas la han cocinado | <i class="tiny material-icons">comment</i> 5 comentarios | <i class="tiny material-icons">photo</i> 12 fotos</p>
+
+                            <div class="mt10 mb40">
+                                <a class="waves-effect waves-light red btn"><i class="material-icons left">save</i>Guardar</a>
+                                <a class="waves-effect waves-light red btn"><i class="material-icons left">add</i>Añadir al menú</a>
+                                <a class="waves-effect waves-light red btn"><i class="material-icons left">restaurant_menu</i>¡Lo he cocinado!</a>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m5">
+                            <img class="responsive-img" width="400" src="img/home-icons/food/pizza.jpg">
+                        </div>
+
+                        <div class="row">
+                            <h5 class="clear">Ingredientes</h5>
+                            <div class="col s12 m6">
+                                <ul class="collection">
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Harina</span>
+                                        <p>300g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Agua</span>
+                                        <p>160g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Levadura de panadería instantánea</span>
+                                        <p>5g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Aceite de oliva virgen extra</span>
+                                        <p>20g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col s12 m6">
+                                <ul class="collection">
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Sal</span>
+                                        <p>1 cucharadita
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Salsa de tomate</span>
+                                        <p>200g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Mozzarella</span>
+                                        <p>100g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle">restaurant_menu</i>
+                                        <span class="title">Jamón de york</span>
+                                        <p>100g
+                                        </p>
+                                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+                        <h5>Pasos</h5>
+
+                        <ul class="collection">
+                            <li class="collection-item avatar">
+                                <i class="material-icons circle">done</i> En un bol ponemos todos los ingredientes de la masa: harina, agua, levadura, aceite y sal y mezclamos bien con una cuchara. Una masa de pizza es como un pan sencillo. Se puede hacer
+                                con cualquier tipo de harina y la cantidad de agua será aproximadamente de la mitad de la de harina. Si usamos una harina con más cantidad de gluten (harina de fuerza) entonces necesitaremos algo más de agua y si utilizamos
+                                una harina normal (como la de hoy) con la mitad de agua (por harina) y un poco más será suficiente.</li>
+                            <li class="collection-item avatar">
+                                <i class="material-icons circle">done</i> Acto seguido pasaremos a amasar. Si tenemos una amasadora estupendo porque no tendremos que hacer gran cosa. Si no tenemos lo unico que haremos será estirar la masa y recoger con
+                                la palma de la mano hasta conseguir una masa que no se pega a las manos ni a la mesa, es una masa fina y elástica. Entre 5 y 10 minutos serán más que suficientes. No hará falta enharinar la mesa.</li>
+                            <li class="collection-item avatar">
+                                <i class="material-icons circle">done</i>A continuación dejaremos fermentar la masa tapada. El objetivo es que doble de volumen. ¿Y eso cuando lo hace? La respuesta es sencilla, si hace frio tardará más que si hace calor.
+                                O al contrario, si hace calor tardará menos. Las mejores masas cuanto más tarden mejor porque la masa se desarrolla de otra forma, pero con nuestra pizza sin complicaciones nos dará igual. Nosotros la dejamos y cuando suba
+                                al doble seguiremos por el siguiente paso.</li>
+                            <li class="collection-item avatar"><i class="material-icons circle">done</i>Ahora que nuestra masa ha crecido lo suficiente podemos continuar. Cogemos la masa y la desgasificamos, es decir la amasamos ligeramente para que vuelva a su volumen inicial. Podemos
+                                pasar a dividirla para hacer pizzas pequeñas o hacer una grande. Para estirarla sin complicaciones la estiramos con las manos como podamos o bien con un rodillo, la forma es lo de menos, si sale cuadrada adelante si conseguís
+                                una masa redonda genial. Le pondremos los ingredientes, primero el tomate, después el queso y el resto de cosas que queramos añadir.</li>
+                            <li class="collection-item avatar"><i class="material-icons circle">done</i>EL último paso es el del horno, y no es el menos importante. Con el horno precalentado a un mínimo de 230 ºC metemos la pizza. Podemos usar una piedra para el horno o una bandeja. Si
+                                tenemos piedra la base de la pizza quedará más crujiente pero no nos tenemos que complicar la vida, quedan muy ricas en cualquier bandeja que tengáis. Hornearemos durante unos 8-10 minutos, hasta que se dore ligeramente.</li>
+                        </ul>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    </div>
+
+    <footer class="page-footer red">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Equipo</h5>
+                    <p class="grey-text text-lighten-4">
+                        Somos un grupo de estudiantes de la Facultad de Informática de la Universidad Complutense de Madrid. Esta aplicación es un proyecto para la asignatura de Ingeniería Web.
+                    </p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Enlaces</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Más enlaces</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Desarrollado en <i class="material-icons tiny">code</i> <a class="orange-text text-lighten-3" href="https://informatica.ucm.es/">Facultad de Informática UCM</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/materialize.min.js"></script>
+    <script src="js/gastronomo.js"></script>
+</body>
+
+</html>

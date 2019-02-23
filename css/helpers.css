@@ -505,3 +505,15 @@
 .mr110 {
     margin-right: 110px;
 }
+
+.right {
+    float: right !important;
+}
+
+.left {
+    float: left !important;
+}
+
+.clear {
+    clear: both;
+}
