@@ -1,6 +1,7 @@
 import sys
 import getopt
 import json
+from io import open as iopen
 import peewee as pw
 import requests
 from bs4 import BeautifulSoup
@@ -98,12 +99,22 @@ class RecetaNutriente(pw.Model):
         database = db
 
 
+def file_extension(file_url):
+    file_suffix = file_url.split('.')[-1]
+    return file_suffix
+
+
+def download_img(img, name):
+    with iopen('img/' + name, 'wb') as file:
+            file.write(img)
+
+
 """
 Parser para Comida Kraft
 """
 
 
-def get_pasos_kraft(url):
+def get_pasos_kraft(id_db, url, imagen):
     # Proxy TOR necesario. Web con Geo Block (USA, Canada, etc.)
     session = requests.session()
     session.proxies = {}
@@ -123,6 +134,10 @@ def get_pasos_kraft(url):
         pasos_json[str(paso_idx)] = paso
         paso_idx += 1
 
+    r = session.get(imagen)
+    if r.status_code == requests.codes.ok:
+        download_img(r.content, str(id_db) + '.' + file_extension(imagen))
+
     return json.dumps(pasos_json, ensure_ascii=False).encode('utf8')
 
 
@@ -131,7 +146,7 @@ Parser Que Rica Vida
 """
 
 
-def get_pasos_ricavida(url):
+def get_pasos_ricavida(id_db, url, imagen):
     r = requests.get(url)
 
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -144,6 +159,10 @@ def get_pasos_ricavida(url):
         paso = paso.text.strip()
         pasos_json[str(paso_idx)] = paso
         paso_idx += 1
+
+    r = requests.get(imagen)
+    if r.status_code == requests.codes.ok:
+        download_img(r.content, str(id_db) + '.' + file_extension(imagen))
 
     return json.dumps(pasos_json, ensure_ascii=False).encode('utf8')
 
@@ -161,6 +180,8 @@ def procesar(recetas, dificultad):
     duracion = duracion[0] if len(
         duracion) == 1 else duracion[0] + '-' + duracion[1]
     recetas = recetas['hits']
+
+    idx = 1
 
     for r in recetas:
         receta = r['recipe']
@@ -183,7 +204,7 @@ def procesar(recetas, dificultad):
             # Scraping de los pasos (solo si es una receta nueva, consume tiempo...)
             pasos_disponibles = [web[1] for web in SCRAPPING if web[0] in url]
             if len(pasos_disponibles) > 0:
-                pasos = pasos_disponibles[0](url)
+                pasos = pasos_disponibles[0](idx, url, imagen)
             else:
                 pasos = ""
 
@@ -235,6 +256,7 @@ def procesar(recetas, dificultad):
                                                           cantidad=cantidad,
                                                           unidad=unidad,
                                                           porcentaje_diario=porcentaje_diario)
+        idx += 1
 
 
 def get_recipes(query, limite, tiempo, dificultad):
