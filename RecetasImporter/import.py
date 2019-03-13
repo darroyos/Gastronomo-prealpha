@@ -1,6 +1,7 @@
 import sys
 import getopt
 import json
+import logging
 from io import open as iopen
 import peewee as pw
 import requests
@@ -32,70 +33,77 @@ NUTRIENTES_ID = [
 db = pw.SqliteDatabase('recipes.db')
 
 
-class Receta(pw.Model):
-    nombre = pw.CharField()
-    imagen = pw.CharField()
+class Recipe(pw.Model):
+    name = pw.CharField()
     url = pw.CharField()
-    atribucion = pw.CharField()
-    duracion = pw.CharField()
-    valoracion = pw.FloatField(default=0)
-    calorias = pw.FloatField()
-    peso = pw.FloatField()
-    raciones = pw.FloatField()
-    dificultad = pw.CharField()
-    cocina = pw.CharField()
-    pasos = pw.TextField(null=True)
+    attribution = pw.CharField()
+    duration = pw.IntegerField()
+    calories = pw.FloatField()
+    weight = pw.FloatField()
+    rations = pw.FloatField()
+    difficulty = pw.CharField()
+    cuisine = pw.CharField()
+    steps = pw.TextField(null=True)
+    user_id = pw.IntegerField()
 
     class Meta:
+        db_table = 'recipe'
         database = db
 
 
-class Ingrediente(pw.Model):
-    nombre = pw.CharField()
+class Ingredient(pw.Model):
+    name = pw.CharField()
 
     class Meta:
+        db_table = 'ingredient'
         database = db
 
 
-class RecetaIngrediente(pw.Model):
-    receta = pw.ForeignKeyField(Receta)
-    ingrediente = pw.ForeignKeyField(Ingrediente)
-    peso = pw.IntegerField()
+class RecipeIngredient(pw.Model):
+    weight = pw.IntegerField()
+    recipe_id = pw.ForeignKeyField(Recipe)
+    ingredient_id = pw.ForeignKeyField(Ingredient)
 
     class Meta:
+        db_table = 'recipe_ingredient'
         database = db
 
 
 class Tag(pw.Model):
-    nombre = pw.CharField()
+    tag = pw.CharField()
 
     class Meta:
+        db_table = 'tag'
         database = db
 
 
-class RecetaTag(pw.Model):
-    receta = pw.ForeignKeyField(Receta)
-    tag = pw.ForeignKeyField(Tag)
+class RecipeTags(pw.Model):
+    recipe_id = pw.ForeignKeyField(Recipe)
+    tags_id = pw.ForeignKeyField(Tag)
 
     class Meta:
+        db_table = 'recipe_tags'
+        primary_key = pw.CompositeKey('recipe_id', 'tags_id')
         database = db
 
 
-class Nutriente(pw.Model):
-    nombre = pw.CharField()
+class Nutrient(pw.Model):
+    nutrient = pw.CharField()
 
     class Meta:
+        db_table = 'nutrient'
         database = db
 
 
-class RecetaNutriente(pw.Model):
-    receta = pw.ForeignKeyField(Receta)
-    nutriente = pw.ForeignKeyField(Nutriente)
-    cantidad = pw.FloatField()
-    unidad = pw.CharField()
-    porcentaje_diario = pw.FloatField()
+class RecipeNutrient(pw.Model):
+    cuantity = pw.FloatField()
+    daily_percentage = pw.FloatField()
+    unit = pw.CharField()
+    nutrient_id = pw.ForeignKeyField(Nutrient)
+    recipe_id = pw.ForeignKeyField(Recipe)
 
     class Meta:
+        db_table = 'recipe_nutrient'
         database = db
 
 
@@ -106,7 +114,7 @@ def file_extension(file_url):
 
 def download_img(img, name):
     with iopen('img/' + name, 'wb') as file:
-            file.write(img)
+        file.write(img)
 
 
 """
@@ -196,7 +204,7 @@ def procesar(recetas, dificultad):
         nueva = False
         try:
             # ¿Existe ya esa receta?
-            receta_obj = Receta.get(Receta.nombre == nombre)
+            receta_obj = Recipe.get(Recipe.name == nombre)
         except pw.DoesNotExist as error:
             nueva = True
 
@@ -208,25 +216,25 @@ def procesar(recetas, dificultad):
             else:
                 pasos = ""
 
-            receta_obj = Receta.create(nombre=nombre,
-                                       imagen=imagen,
+            receta_obj = Recipe.create(attribution=atribucion,
+                                       calories=calorias,
+                                       cuisine=cocina,
+                                       difficulty=dificultad,
+                                       duration=duracion,
+                                       name=nombre,
+                                       rations=raciones,
+                                       steps=pasos,
                                        url=url,
-                                       atribucion=atribucion,
-                                       duracion=duracion,
-                                       valoracion=0,
-                                       calorias=calorias,
-                                       peso=peso,
-                                       raciones=raciones,
-                                       dificultad=dificultad,
-                                       cocina=cocina,
-                                       pasos=pasos)
+                                       weight=peso,
+                                       user_id=1)
 
             tags = receta['dietLabels'] + receta['healthLabels']
 
             for t in tags:
 
-                tag, creado = Tag.get_or_create(nombre=t)
-                ingre_tag = RecetaTag.create(receta=receta_obj.id, tag=tag.id)
+                tag, creado = Tag.get_or_create(tag=t)
+                ingre_tag = RecipeTags.create(
+                    recipe_id=receta_obj.id, tags_id=tag.id)
 
             ingredientes = receta['ingredients']
 
@@ -234,10 +242,10 @@ def procesar(recetas, dificultad):
                 nombre = i['text']
                 peso = float(i['weight'])
 
-                ingrediente, creado = Ingrediente.get_or_create(nombre=nombre)
-                receta_ingre = RecetaIngrediente.create(receta=receta_obj.id,
-                                                        ingrediente=ingrediente.id,
-                                                        peso=peso)
+                ingrediente, creado = Ingredient.get_or_create(name=nombre)
+                receta_ingre = RecipeIngredient.create(weight=peso,
+                                                       ingredient_id=ingrediente.id,
+                                                       recipe_id=receta_obj.id)
 
             nutrientes = receta['totalNutrients']
             diario = receta['totalDaily']
@@ -250,12 +258,12 @@ def procesar(recetas, dificultad):
                     cantidad = nutriente['quantity']
                     unidad = nutriente['unit']
                     porcentaje_diario = nutriente_diario['quantity']
-                    nutriente, creado = Nutriente.get_or_create(nombre=nombre)
-                    receta_nutri = RecetaNutriente.create(receta=receta_obj.id,
-                                                          nutriente=nutriente.id,
-                                                          cantidad=cantidad,
-                                                          unidad=unidad,
-                                                          porcentaje_diario=porcentaje_diario)
+                    nutriente, creado = Nutrient.get_or_create(nutrient=nombre)
+                    receta_nutri = RecipeNutrient.create(cuantity=cantidad,
+                                                         daily_percentage=porcentaje_diario,
+                                                         unit=unidad,
+                                                         nutrient_id=nutriente.id,
+                                                         recipe_id=receta_obj.id)
         idx += 1
 
 
@@ -320,8 +328,11 @@ def main(argv):
             dificultad = 'Difícil'
 
     db.connect()
-    db.create_tables([Receta, Ingrediente, Tag, RecetaIngrediente,
-                      RecetaTag, Nutriente, RecetaNutriente])
+    db.create_tables([Recipe, Ingredient, Tag, RecipeIngredient,
+                      RecipeTags, Nutrient, RecipeNutrient])
+    logger = logging.getLogger('peewee')
+    logger.addHandler(logging.StreamHandler())
+    logger.setLevel(logging.DEBUG)
     get_recipes(query, limite, tiempo, dificultad)
     db.close()
 
