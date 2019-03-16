@@ -30,6 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.chips');
     var instances = M.Chips.init(elems, { onChipAdd: changeColor, autocompleteOptions });
 
+    var elems = document.querySelectorAll('.chips-ingredientes');
+    var instances = M.Chips.init(elems, {
+        placeholder: '+Ingrediente',
+        secondaryPlaceholder: '+Ingrediente',
+    });
+
+    var elems = document.querySelectorAll('.chips-alergias');
+    var instances = M.Chips.init(elems, {
+        placeholder: '+Alergia',
+        secondaryPlaceholder: '+Alergia',
+    });
+
 });
 
 // Color rojo en vez del azul por defecto
