@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gastrónomo | Buscador de recetas por ingredientes</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ff1744">
+    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ff1744">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/helpers.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="index.html" class="brand-logo logo">Gastrónomo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#"><i class="material-icons">notifications</i></a></li>
+                <li><a class="waves-effect waves-light modal-trigger" href="#login"><i class="material-icons right">person</i>Iniciar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="pr50 pl50 mt30 mb30">
+
+        <div class="row">
+
+            <div class="col s12 l3">
+
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-title">
+                            Valores nutricionales
+                        </div>
+
+                        <p>Se debe introducir la <strong>cantidad seguida de la unidad utilizada</strong>. Se recomienda utilizar las <strong>unidades recomendadas</strong>. El porcentaje diario se calculará <strong>automáticamente</strong>.</p>
+
+                        <ul class="collection">
+                            <li class="collection-item"><strong>Grasa:</strong>
+                                <div class="input-field inline">
+                                    <input id="grasa" type="text" class="validate">
+                                    <label for="grasa">Cantidad de grasa</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Colesterol:</strong>
+                                <div class="input-field inline">
+                                    <input id="colesterol" type="text" class="validate">
+                                    <label for="colesterol">Cantidad de colesterol</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Sodio:</strong>
+                                <div class="input-field inline">
+                                    <input id="sodio" type="text" class="validate">
+                                    <label for="sodio">Cantidad de sodio</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Potasio:</strong>
+                                <div class="input-field inline">
+                                    <input id="potasio" type="text" class="validate">
+                                    <label for="potasio">Cantidad de potasio</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Carbohidratos:</strong>
+                                <div class="input-field inline">
+                                    <input id="carbohidratos" type="text" class="validate">
+                                    <label for="carbohidratos">Cantidad de carbohidratos</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Fibra:</strong>
+                                <div class="input-field inline">
+                                    <input id="fibra" type="text" class="validate">
+                                    <label for="fibra">Cantidad de fibra</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Calcio:</strong>
+                                <div class="input-field inline">
+                                    <input id="calcio" type="text" class="validate">
+                                    <label for="calcio">Cantidad de calcio</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Hierro:</strong>
+                                <div class="input-field inline">
+                                    <input id="hierro" type="text" class="validate">
+                                    <label for="hierro">Cantidad de hierro</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Vitamina B6:</strong>
+                                <div class="input-field inline">
+                                    <input id="vitaminab6" type="text" class="validate">
+                                    <label for="vitaminab6">Cantidad de vitamina B6</label>
+                                </div>
+                            </li>
+                            <li class="collection-item"><strong>Magnesio:</strong>
+                                <div class="input-field inline">
+                                    <input id="magnesio" type="text" class="validate">
+                                    <label for="magnesio">Cantidad de magnesio</label>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col s12 l9">
+                <div class="card">
+
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+
+                                <h4>Crea tu propia receta</h4>
+
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            <input placeholder="Pon un título a tu receta" id="nombre_receta" type="text" class="validate">
+                                            <label for="first_name">Nombre de la receta</label>
+                                        </div>
+
+                                        <div class="file-field input-field col s6">
+                                            <div class="btn red">
+                                                <span>Imagen</span>
+                                                <input type="file">
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" type="text">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <ul class="collection">
+                                            <li class="collection-item">
+                                                <div>
+                                                    <strong>Categoría: </strong>
+                                                    <div class="input-field inline">
+                                                        <input id="categoria" type="text" class="validate">
+                                                        <label for="categoria">Categoría</label>
+                                                    </div>
+                                                    <i class="secondary-content material-icons">restaurant</i>
+                                                </div>
+                                            </li>
+                                            <li class="collection-item">
+                                                <div>
+                                                    <strong>Dificultad: </strong>
+                                                    <div class="input-field inline">
+                                                        <select>
+                                                <option value="" disabled selected>Elige la dificultad</option>
+                                                <option value="1">Fácil</option>
+                                                <option value="2">Medio</option>
+                                                <option value="3">Difícil</option>
+                                                </select>
+                                                    </div>
+                                                    <i class="secondary-content material-icons">thumb_up</i>
+                                                </div>
+                                            </li>
+                                            <li class="collection-item">
+                                                <div>
+                                                    <strong>Duración: </strong>
+                                                    <div class="input-field inline">
+                                                        <input id="duracion" type="text" class="validate">
+                                                        <label for="duracion">Duración</label>
+                                                    </div>
+                                                    <i class="secondary-content material-icons">timer</i>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                    <div class="input-field col s12 m6">
+                                        <ul class="collection">
+                                            <li class="collection-item">
+                                                <div>
+                                                    <strong>Raciones: </strong>
+                                                    <div class="input-field inline">
+                                                        <input id="raciones" type="number" class="validate">
+                                                        <label for="raciones">Raciones</label>
+                                                    </div>
+                                                    <i class="secondary-content material-icons">people</i>
+                                                </div>
+                                            </li>
+
+                                            <li class="collection-item">
+                                                <div>
+                                                    <strong>Calorías: </strong>
+                                                    <div class="input-field inline">
+                                                        <input id="calorias" type="text" class="validate">
+                                                        <label for="calorias">Calorías de la receta</label>
+                                                    </div> <i class="secondary-content material-icons">fastfood</i>
+                                                </div>
+                                            </li>
+
+                                            <li class="collection-item">
+                                                <div>
+                                                    <strong>Tags: </strong>
+                                                    <div class="chips chips-autocomplete"></div>
+                                                    <i class="secondary-content material-icons">label</i>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <h5>Ingredientes <a class="btn-floating btn-small waves-effect waves-light red" onclick="addIngredient()"><i class="material-icons">add</i></a></h5>
+                                    <div class="col s12 m6">
+                                        <ul id="firstIngredients" class="collection">
+                                            <li id="ingredient_form_1" class="collection-item avatar">
+                                                <i class="material-icons circle">restaurant_menu</i>
+                                                <span class="title">
+                                                    <div class="input-field">
+                                                <input placeholder="Nombre del ingrediente" id="ingredient_1" type="text" class="validate">
+                                                <label for="ingredient_1">Ingrediente</label>
+                                                </div>
+                                            </span>
+                                                <div class="input-field">
+                                                    <input placeholder="Peso en gramos" id="ingredient_weight_1" type="text" class="validate">
+                                                    <label for="ingredient_weight_1">Peso en gramos</label>
+                                                </div>
+                                                <a href="#!" onclick="removeIngredient(1)" class="tooltipped secondary-content" data-position="bottom" data-tooltip="Eliminar ingrediente"><i class="material-icons">delete</i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col s12 m6">
+                                        <ul id="secondIngredients" class="collection">
+                                            <li id="ingredient_form_2" class="collection-item avatar">
+                                                <i class="material-icons circle">restaurant_menu</i>
+                                                <span class="title">
+                                                            <div class="input-field">
+                                                        <input placeholder="Nombre del ingrediente" id="ingredient_2" type="text" class="validate">
+                                                        <label for="ingredient_2">Ingrediente</label>
+                                                        </div>
+                                                    </span>
+                                                <div class="input-field">
+                                                    <input placeholder="Peso en gramos" id="ingredient_weight_2" type="text" class="validate">
+                                                    <label for="ingredient_weight_2">Peso en gramos</label>
+                                                </div>
+                                                <a href="#!" onclick="removeIngredient(2)" class="tooltipped secondary-content" data-position="bottom" data-tooltip="Eliminar ingrediente"><i class="material-icons">delete</i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12">
+
+                                    <h5 class="left">Pasos
+                                        <a onclick="addStep()" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a></h5>
+
+                                    <ul id="stepsForm" class="collection clear">
+                                        <li id="step_form_1" class="collection-item avatar">
+                                            <i class="material-icons circle">done</i>
+
+                                            <div class="input-field col s12">
+                                                <textarea id="step_1" class="materialize-textarea"></textarea>
+                                                <label for="step_1">Paso #1</label>
+                                            </div>
+                                            <a href="#!" onclick="removeStep(1)" class="tooltipped secondary-content" data-position="bottom" data-tooltip="Eliminar paso"><i class="material-icons">delete</i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class="btn waves-effect btn-large waves-light red" type="submit" name="action">Enviar receta
+                                <i class="material-icons right">send</i>
+                              </button>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <footer class="page-footer red">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Equipo</h5>
+                    <p class="grey-text text-lighten-4">
+                        Somos un grupo de estudiantes de la Facultad de Informática de la Universidad Complutense de Madrid. Esta aplicación es un proyecto para la asignatura de Ingeniería Web.
+                    </p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Enlaces</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Más enlaces</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Desarrollado en <i class="material-icons tiny">code</i> <a class="orange-text text-lighten-3" href="https://informatica.ucm.es/">Facultad de Informática UCM</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="js/materialize.min.js"></script>
+    <script src="js/gastronomo.js"></script>
+</body>
+
+</html>
